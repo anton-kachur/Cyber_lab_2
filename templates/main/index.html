@@ -1,0 +1,321 @@
+{% extends 'main/layout.html' %}
+{% load i18n %}
+
+{% block titlez %}
+	Main page
+{% endblock %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-expand-sm navbar-custom">
+		<!-- Brand/logo -->
+		<a class="navbar-brand" href="#">Cyber-sys 2.0</a>
+		  
+		<!-- Links -->
+		<ul class="navbar-nav">			
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'index' %}">Main page</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">Documentation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Contacts</a>
+			</li>
+		</ul>
+		</nav>
+{% endblock %}
+
+
+{% block content %}
+	<div class="container">
+		<form method="post">
+			{% csrf_token %}
+			<div class="container">
+				<div class="row">
+					<div class="col-6">
+					
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1">Дата:</label>
+						<input type="date" class="form-control form-control-sm" name="calendar" value="2012-11-01" max="2012-12-01" min="2012-01-01">
+						<input type="date" class="form-control form-control-sm" name="calendar" value="2012-12-01" max="2012-12-31" min="2012-01-01">
+						<!--<label for="exampleInputPassword1">Дата:</label>
+						<input type="number" class="form-control" id="shower_temperature" step="0.01" name="quantity">-->
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputEmail1"><h6>Кількість мешканців:</h6></label>
+						{{ form.inhabitants }}
+						<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1"><h6>Кількість прийомів душу на добу:</h6></label>
+						<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+						{{ form.shower_use }}
+					</div>
+				
+					<div class="form-group">
+						<label for="exampleInputEmail1"><h6>Норма водоспоживання(л):</h6></label>
+						<!--<input type="number" class="form-control" id="water_usage_norm" step="0.01" name="quantity">-->
+						{{ form.water_usage_norm }}
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1"><h6>Кількість прийомів ванни на добу:</h6></label>
+						<!--<input type="number" class="form-control" id="bath_use" step="0.01" name="quantity">-->
+						{{ form.bath_use }}
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputEmail1"><h6>Температура води при прийомі ванни(C°):</h6></label>
+						<!--<input type="number" class="form-control" id="bath_temperature" step="0.01" name="quantity">-->
+						{{ form.bath_temperature }}
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1"><h6>Температура води при прийомі душу(C°):</h6></label>
+						<!--<input type="number" class="form-control" id="shower_temperature" step="0.01" name="quantity">-->
+						{{ form.shower_temperature }}
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputPassword1"><h6>Температура вхідної води(C°):</h6></label>
+						<!--<input type="number" class="form-control" id="shower_temperature" step="0.01" name="quantity">-->
+						{{ form.enter_temperature }}
+					</div>
+
+					</div>
+				
+				
+				<div class="col-6">
+				
+				<div class="form-group">
+						<label for="exampleInputEmail1"><h6>Місто:</h6></label>
+						<!--<input type="number" class="form-control" id="air_temperature" step="0.01" name="quantity">-->
+						{{ form.city }}
+					</div>
+					
+				<div class="ezer">
+				<div class="form-group">
+						<label for="exampleInputPassword1">
+					<br><h6>Температура вихідної води(C°):</h6></label>
+						<!--<input type="number" class="form-control" id="shower_temperature" step="0.01" name="quantity">-->
+						{{ form.exit_temperature }}
+					</div>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1"><h6>Температура бака(C°):</h6></label>
+					<!--<input type="number" class="form-control" id="tank_temperature" step="0.01" name="quantity">-->
+					{{ form.tank_temperature }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputPassword1"><h6>Час нагрівання бака(хв):</h6></label>
+					<!--<input type="number" class="form-control" id="time_of_tank_heating" step="0.01" name="quantity">-->
+					{{ form.time_of_tank_heating }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1"><h6>Питомі тепловтрати будівлі(кВт/м2):</h6></label>
+					<!--<input type="number" class="form-control" id="heat_losses_of_building" step="0.01" name="quantity">-->
+					{{ form.heat_losses_of_building }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputPassword1"><h6>Площа будинку(м2):</h6></label>
+					<!--<input type="number" class="form-control" id="house_area" step="0.01" name="quantity">-->
+					{{ form.house_area }}
+				</div>
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1"><h6>Температура повітря всередині будівлі(C°):</h6></label>
+					<!--<input type="number" class="form-control" id="air_temperature" step="0.01" name="quantity">-->
+					{{ form.air_temperature }}
+				</div>
+			
+				<div class="form-group">
+					<label for="exampleInputPassword1"><h6>Тариф на теплову енергію(грн/ГКал):</h6></label>
+					<!--<input type="number" class="form-control" id="taryph" step="0.01" name="quantity">-->
+					{{ form.taryph }}
+				</div>
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			<h2>Вугільний котел</h2>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-6">		
+						<div class="form-group">
+							<label for="exampleInputEmail1">Кількість палива на 1кВт*год енергії:</label>
+							{{ form.vugil_am }}
+							<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+						</div>
+					</div>
+				
+					<div class="col-6">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Вартість 1т вугілля:</label>
+							<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+							{{ form.vugil_cost }}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<h2>Газовий котел</h2>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-6">		
+						<div class="form-group">
+							<label for="exampleInputEmail1">Кількість палива на 1кВт*год енергії:</label>
+							{{ form.gas_am }}
+							<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+						</div>
+					</div>
+				
+					<div class="col-6">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Вартість 1м3 газу:</label>
+							<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+							{{ form.gas_cost }}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<h2>Дров'яний котел</h2>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-6">		
+						<div class="form-group">
+							<label for="exampleInputEmail1">Кількість палива на 1кВт*год енергії:</label>
+							{{ form.drowa_am }}
+							<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+						</div>
+					</div>
+				
+					<div class="col-6">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Вартість 1т дров:</label>
+							<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+							{{ form.drowa_cost }}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<h2>Пелетний котел</h2>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-6">		
+						<div class="form-group">
+							<label for="exampleInputEmail1">Кількість палива на 1кВт*год енергії:</label>
+							{{ form.pelet_am }}
+							<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+						</div>
+					</div>
+				
+					<div class="col-6">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Вартість 1т пелет:</label>
+							<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+							{{ form.pelet_cost }}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			<h2>Електричний котел</h2>
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-6">		
+						<div class="form-group">
+							<label for="exampleInputEmail1">Кількість палива на 1кВт*год енергії:</label>
+							{{ form.elec_am }}
+							<!--<input type="number" class="form-control" id="inhabitants" name="quantity" min="1">-->
+						</div>
+					</div>
+				
+					<div class="col-6">
+						<div class="form-group">
+							<label for="exampleInputPassword1">Тариф на електричну енергію:</label>
+							<!--<input type="number" class="form-control" id="shower_use" name="quantity" min="1">-->
+							{{ form.elec_cost }}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<br>
+			
+			<button class="btn btn-primary btn-md btn-block">Виконати розрахунки</button>
+		</form>
+	</div>
+	
+	
+
+{% endblock %}
+
+
+{% block footerz %}
+	<footer class="page-footer font-small special-color-dark pt-4">
+
+
+		  <div class="container">
+
+			<ul class="list-unstyled list-inline text-center">
+			  <li class="list-inline-item">
+				<a class="btn-floating btn-in mx-1" href="https://www.instagram.com/?hl=ru">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111463.svg">
+				</a>
+			  </li>
+			  <li class="list-inline-item">
+				<a class="btn-floating btn-fb mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384053.svg">
+				</a>
+			   </li>
+			   <li class="list-inline-item">
+				<a class="btn-floating btn-gplus mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111450.svg">
+				</a>
+			   </li>
+			   <li class="list-inline-item">
+				<a class="btn-floating btn-tg mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg">
+				</a>
+			   </li>
+			</ul>
+
+
+		  </div>
+
+
+		  <div class="footer-copyright text-center py-3">© 2020 Copyright: Cyber-sys 2.0
+		  </div>
+
+		</footer>
+{% endblock %}
+
+
+

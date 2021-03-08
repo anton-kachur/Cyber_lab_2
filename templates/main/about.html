@@ -1,0 +1,55 @@
+{% extends 'main/layout.html' %}
+{% load poll_extras %}
+{% load i18n %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-expand-sm navbar-custom">
+		<!-- Brand/logo -->
+		<a class="navbar-brand" href="#">Killer-sys 2.0</a>
+		  
+		<!-- Links -->
+		<ul class="navbar-nav">			
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'index' %}">Main page</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">Documentation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Contacts</a>
+			</li>
+		</ul>
+		</nav>
+{% endblock %}
+
+{% block content %}
+	{% for el in ejde %}
+		
+		<h1>Результати обчислень: </h1><br>
+		{{ el.set_temp }}
+		<h2>Місто: {{ el.cit }}</h2>
+		<h2>Обсяг споживання води на прийом душу: {{ el.func1 }}(л)</h2>
+		<h2>Обсяг споживання води на прийом ванни: {{ el.func2 }}(л)</h2>
+		<h2>Корегування витрати гарячої води для душу: {{ el.func3 }}(л/доба)</h2>
+		<h2>Корегування витрати гарячої води для ванни: {{ el.func4 }}(л/доба)</h2>
+		<h2>Загальні витрати душу та ванни: {{ el.func5 }}(л/доба)</h2>
+		<h2>Енергія необхідна для нагріву води: {{ el.func6 }}(кВт*год)</h2>
+		<h2>Необхідна теплова потужність нагрівача: {{ el.func7 }}(кВт)</h2><br>
+		<h2>Потужність тепловтрат: {{ el.func8 }}(кВт)</h2>
+		<h3>Площа будинку: {{ el.house_area }}(м2)			Питома тепловтрата: {{ el.func8_1 }}(кВт/м2)</h3>	
+		<h3>Температура зовнішнього повітря: {{ el.air_temperature }}(C°)			Температура внутрішнього повітря: {{ el.air_temperature_out }}(C°)</h3>
+		<h3>Сума витрат енергії по всім температурним режимам: {{ el.cons_temp }}(кВт*год)</h3>
+		<br><br>
+		{{ el.get_Graph_lab2|safe }}
+		<br>
+		<br>
+		<br>
+		{{ el.set_bd1|safe }}
+		<br>
+		<br>
+		<br>
+		{{ el.set_bd2|safe }}
+	
+	{% endfor %}
+{% endblock %}

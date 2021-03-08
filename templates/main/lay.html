@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang = "en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible", content="ie=edge">
+		<title>{% block title %} {% endblock %}</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet", href="{% static 'main/css/styles.css' %}">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-custom">
+		<!-- Brand/logo -->
+		<a class="navbar-brand" href="#">Killer-sys 2.0</a>
+		  
+		<!-- Links -->
+		<ul class="navbar-nav">			
+			<li class="nav-item">
+				<a class="nav-link" href="#">Main page</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Documentation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Contacts</a>
+			</li>
+		</ul>
+		</nav>
+		
+		
+		{% block content %}
+		{% endblock %}
+	
+		<div id="wrapper" class="toggled">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"> <a href="#">Navigation</a> </li>
+                    <li> <a href="C:/Users/Антон/Desktop/Django/LAB_SYS_2/main/templates/main/index.html">#1 Receiving data</a> </li>
+                    <li> <a href="C:/Users/Антон/Desktop/Django/LAB_SYS_2/main/templates/main/about.html">#2 Energy demand and the capacity of hot water and the capacity of the hot water system</a> </li>
+                    <li> <a href="#">#3 The heat loss capacity of the building through the enclosing structures</a> </li>
+                    <li> <a href="#">#4 Construction of the characteristic of building needs in thermal energy for heating</a> </li>
+                    <li> <a href="#">#5 Energy consumption for heating for a certain period</a> </li>
+                    <li> <a href="#">#6 The cost of heating and hot water of the building</a> </li>
+                    <li> <a href="#">#7 Histogram</a> </li>
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+        </div> <!-- /#wrapper -->
+	
+			<!-- Footer -->
+		<footer class="page-footer font-small special-color-dark pt-4">
+
+		  <!-- Footer Elements -->
+		  <div class="container">
+
+			<!-- Social buttons -->
+			<ul class="list-unstyled list-inline text-center">
+			  <li class="list-inline-item">
+				<a class="btn-floating btn-in mx-1" href="https://www.instagram.com/?hl=ru">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111463.svg">
+				</a>
+			  </li>
+			  <li class="list-inline-item">
+				<a class="btn-floating btn-fb mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/1384/1384053.svg">
+				</a>
+			   </li>
+			   <li class="list-inline-item">
+				<a class="btn-floating btn-gplus mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111450.svg">
+				</a>
+			   </li>
+			   <li class="list-inline-item">
+				<a class="btn-floating btn-tg mx-1" href="">
+				  <img src="https://www.flaticon.com/svg/static/icons/svg/2111/2111646.svg">
+				</a>
+			   </li>
+			</ul>
+			<!-- Social buttons -->
+
+		  </div>
+		  <!-- Footer Elements -->
+
+		  <!-- Copyright -->
+		  <div class="footer-copyright text-center py-3">© 2020 Copyright: Killer-sys 2.0
+		  </div>
+		  <!-- Copyright -->
+
+		</footer>
+		<!-- Footer -->
+		<!-- Footer -->
+
+	</body>
+</html>
